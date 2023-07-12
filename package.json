@@ -1,0 +1,13 @@
+{
+  "name": "lesson8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start:watch": "node --watch main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

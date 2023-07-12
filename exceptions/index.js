@@ -1,0 +1,1 @@
+module.export = './not-found.esception'
