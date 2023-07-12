@@ -137,7 +137,7 @@ const server = createServer( async (req, res) => {
             const { title, text} = JSON.parse(chunk)
             
             meeting.title = title ?? meeting.title
-            meeting.text = price ?? meeting.text
+            meeting.text = text ?? meeting.text
 
 
 
