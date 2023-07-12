@@ -11,9 +11,21 @@ const server = createServer( async (req, res) => {
     }
 
     if (httpMethod == 'GET') {
-        res.writeHead(200, options)
-        res.end(JSON.stringify(data))
-        return
+        const meetingId = req.url.split('/')[1]
+        
+        if(!meetingId) {
+            res.writeHead(200, options)
+            res.end(JSON.stringify(data))
+            return
+        }
+
+        const meeting = data.find(e => e.id == meetingId)
+
+        if(meeting) {
+            res.writeHead(404, options)
+            res.end(JSON.stringify({meeting}))
+            return
+        }
     }
 
 
@@ -122,10 +134,10 @@ const server = createServer( async (req, res) => {
         return
 
         req.on('data', chunk => {
-            const { title, price} = JSON.parse(chunk)
+            const { title, text} = JSON.parse(chunk)
             
             meeting.title = title ?? meeting.title
-            meeting.price = price ?? meeting.price
+            meeting.text = price ?? meeting.text
 
 
 
